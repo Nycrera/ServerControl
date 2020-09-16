@@ -4,7 +4,7 @@ pm2.connect();
 var pm2Module = {};
 pm2Module.main = function (app) {
     app.get("/pm2/initData", function (req, res) {
-        serverModule.initData((initData) => {
+        serverModule.initData().then((initData) => {
             res.end(initData);
         });
     });

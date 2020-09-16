@@ -3,7 +3,7 @@ const si = require('systeminformation');
 var serverModule = {};
 serverModule.main = function (app) {
     app.get("/server/initData", function (req, res) {
-        serverModule.initData((initData) => {
+        serverModule.initData().then((initData) => {
             res.end(initData);
         });
     });

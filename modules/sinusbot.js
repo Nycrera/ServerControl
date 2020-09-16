@@ -3,7 +3,7 @@ const CONFIG = require("../config.json");
 var sinusModule = {};
 sinusModule.main = function (app) {
     app.get("/sinusbot/initData", function (req, res) {
-        sinusModule.initData((initData) => {
+        sinusModule.initData().then((initData) => {
             res.end(initData);
         });
     });
@@ -17,11 +17,12 @@ sinusModule.main = function (app) {
                 json: {
                     instanceId: req.params.instanceId,
                 }
-            }, (err, res, body) => {
-                if (!err && res.statusCode == 200) {
-                    cb(body);
+            }, (err, resp, body) => {
+                if (!err && resp.statusCode == 200) {
+                    res.end(200);
                 } else {
                     log("Error in line 28. Module: Sinusbot");
+                    res.end(504);
                 }
             });
         });
@@ -38,9 +39,10 @@ sinusModule.main = function (app) {
                 }
             }, (err, res, body) => {
                 if (!err && res.statusCode == 200) {
-                    cb(body);
+                    res.end(200);
                 } else {
                     log("Error in line 28. Module: Sinusbot");
+                    res.end(504);
                 }
             });
         });
@@ -56,9 +58,10 @@ sinusModule.main = function (app) {
                 }
             }, (err, res, body) => {
                 if (!err && res.statusCode == 200) {
-                    cb(body);
+                    res.end(200);
                 } else {
                     log("Error in line 28. Module: Sinusbot");
+                    res.end(504);
                 }
             });
         });

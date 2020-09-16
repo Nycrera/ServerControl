@@ -4,7 +4,7 @@ const config = require("../config.json");
 var tsModule = {};
 tsModule.main = function (app) {
     app.get("/teamspeak/initData", function (req, res) {
-        tsModule.initData((initData) => {
+        tsModule.initData().then((initData) => {
             res.end(initData);
         });
     });
@@ -33,7 +33,7 @@ tsModule.main = function (app) {
     });
 }
 
-tsModule.initData = function (cb) {
+tsModule.initData = function () {
     return new Promise((resolve, reject) => {
         var data = {}
         data.module = "teamspeak";
