@@ -1,5 +1,5 @@
 var pm2 = require('pm2');
-pm2.connect();
+pm2.connect(()=>{});
 
 var pm2Module = {};
 pm2Module.main = function (app) {
