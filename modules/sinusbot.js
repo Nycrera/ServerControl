@@ -104,6 +104,7 @@ function getGeneralInfo(token, cb) {
         }*/
     }, (err, res, body) => {
         if (!err && res.statusCode == 200) {
+            if(typeof body == 'string') body = JSON.parse(body);
             cb(body);
         } else {
             log("Error in line 28. Module: Sinusbot")
@@ -118,6 +119,7 @@ function getInstanceInfo(token, cb) {
         }
     }, (err, res, body) => {
         if (!err && res.statusCode == 200) {
+            if(typeof body == 'string') body = JSON.parse(body);
             cb(body);
         } else {
             log("Error in line 28. Module: Sinusbot")
@@ -136,6 +138,7 @@ function login(cb) {
         if (error || response.statusCode != 200) {
             cb(null, response.statusCode);
         } else {
+            if(typeof body == 'string') body = JSON.parse(body);
             cb(body.token);
         }
 
