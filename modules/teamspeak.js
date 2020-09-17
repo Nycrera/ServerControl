@@ -54,7 +54,7 @@ tsModule.initData = function () {
                         resolve(data);
                     } else {
                         data.client = (serverInfo.virtualserverClientsonline - serverInfo.virtualserverQueryclientsonline) + "+" + serverInfo.virtualserverQueryclientsonline + "/" + serverInfo.virtualserverMaxclients;
-                        data.uptime = secondsToString(serverInfo.virualserverUptime);
+                        data.uptime = secondsToString(serverInfo.virtualserverUptime);
                         resolve(data);
                         teamspeak.quit();
                     }
