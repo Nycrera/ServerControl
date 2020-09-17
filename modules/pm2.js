@@ -55,7 +55,7 @@ pm2Module.initData = function () {
         const pretty = require('prettysize');
         pm2.list((err, list) => {
             list.forEach(proc => {
-                data.proc.push({ name: proc.name, memory: pretty(proc.monit.memory, true), cpu: pretty(proc.monit.cpu, true), pid: proc.pid });
+                data.proc.push({ name: proc.name, memory: pretty(proc.monit.memory, true), cpu: proc.monit.cpu+"%", pid: proc.pid });
                 data.proclen++;
             });
             resolve(data);
